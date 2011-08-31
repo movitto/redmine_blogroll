@@ -1,0 +1,9 @@
+---
+blogs_001:
+  id: 1
+  url: "http://mo.morsi.org/blog/rss.xml"
+  author: "Mo Morsi"
+blogs_002:
+  id: 2
+  url: "http://clalance.blogspot.com/feeds/posts/default?alt=rss"
+  author: "Chris"

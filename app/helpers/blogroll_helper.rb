@@ -1,0 +1,2 @@
+module BlogrollHelper
+end

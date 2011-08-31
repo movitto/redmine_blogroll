@@ -1,0 +1,35 @@
+<h2>Blogroll</h2>
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'style', :plugin => 'redmine_blogroll' %>
+  <%= auto_discovery_link_tag(:rss, {:action => :index, :format => :rss, :project_id => @project.identifier}, {:title => "RSS Feed"}) %>
+<% end %>
+
+<div class="blogroll_header_link">
+<%= link_to_if_authorized "manage feeds |", :action => "blogs", :project_id => @project.identifier %>
+<%= link_to "RSS", :action => :index, :format => :rss, :project_id => @project.identifier %>
+</div>
+
+<% @content.each { |item| %>
+  <div class="blogroll_item">
+  <div class="blogroll_item_title" >
+  <%= image_tag 'arrow.png', :plugin => :redmine_blogroll %>
+  <%= item.title %>
+  </div>
+  <div class="blogroll_item_link" >
+  <%= link_to "external link", item[:link] %>
+  </div>
+  <div class="blogroll_item_content">
+  <%= item.content %>
+  </div>
+  </div>
+<% } %>
+
+<script type="text/javascript">
+  $$(".blogroll_item_title").each(function(item) {
+    Event.observe(window, 'load', function() {
+        Event.observe(item, 'click', function(){
+            item.next('.blogroll_item_content').toggle();
+        });
+    })
+  });
+</script>

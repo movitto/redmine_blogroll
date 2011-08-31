@@ -1,0 +1,51 @@
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'style', :plugin => 'redmine_blogroll' %>
+<% end %>
+
+<h2>Blogroll blogs</h2>
+<div class="blogroll_header_link">
+<%= link_to "view blogroll", :action => "index", :project_id => @project.identifier %>
+</div>
+
+<div id="blogroll_blogs">
+<%- @blogs.each { |blog| %>
+  <div class="blogroll_blogs_column">
+    <%=   link_to blog.author, blog.url %>
+  </div>
+  <div class="blogroll_blogs_column">
+    <%= link_to 'Delete', :action => :delete_blog, :id => blog.id, :project_id => @project.identifier %>
+  </div>
+
+  <div style="clear: both;"></div>
+<%- } %>
+</div>
+
+<h2>New Blog</h2>
+<% form_for :blog, @blog, :url => { :action => :new_blog } do |f| %>
+  <%= f.error_messages %>
+
+  <input type="hidden" name="project_id" value="<%= @project.identifier %>" />
+  <div class="form_row">
+  <div class="form_label">
+  <%= f.label      :url    %>
+  </div>
+  <div class="form_field">
+  <%= f.text_field :url    %>
+  </div>
+  </div>
+  <div style="clear: both;"></div>
+
+  <div class="form_row">
+  <div class="form_label">
+  <%= f.label      :author    %>
+  </div>
+  <div class="form_field">
+  <%= f.text_field :author    %>
+  </div>
+  </div>
+  <div style="clear: both;"></div>
+
+  <div class="form_row">
+  <%= submit_tag   "Create" %>
+  </div>
+<% end %>

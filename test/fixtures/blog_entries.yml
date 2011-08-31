@@ -1,0 +1,15 @@
+---
+blog_entires_001:
+  id: 1
+  blog_id: 1
+  title: "Quick Fedora Screencasting Guide"
+  link: "http://mo.morsi.org/blog/node/345"
+  date: 2011-08-30 22:29:28
+  content: "lorem ipsum"
+blog_entires_002:
+  id: 2
+  blog_id: 1
+  title: "Installing Fedora 15 on the Thinkpad T520"
+  link: "http://mo.morsi.org/blog/node/344"
+  date: 2011-08-30 22:29:28
+  content: "lorem ipsum"
