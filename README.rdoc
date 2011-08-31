@@ -5,7 +5,7 @@ Provides a simple rss aggregator for Redmine
 = Installation
 * Install redmine as instructed on redmine.org
 * cd <redmine-path>/vendor/plugins
-* git clone git://github.com/movitto/redmine_backlog
+* git clone git://github.com/movitto/redmine_blogroll.git
 * restart your webserver
 * login as an admin
 * Enable blogroll module for all projects that require it
