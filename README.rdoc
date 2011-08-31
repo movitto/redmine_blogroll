@@ -9,12 +9,12 @@ Provides a simple rss aggregator for Redmine
 * restart your webserver
 * login as an admin
 * Enable blogroll module for all projects that require it
-** Admin > Projects > [project-name] > Modules > Blogroll > Save
+  * Admin > Projects > [project-name] > Modules > Blogroll > Save
 * Add view / modify permissions to all roles that require it 
-** Admin > Roles and Permissions > [role-name] > Check 'View blogroll' and/or 'Manage blogroll' > Save
+  * Admin > Roles and Permissions > [role-name] > Check 'View blogroll' and/or 'Manage blogroll' > Save
 * Manage feeds
-** Navigate to project, click 'blogroll' in main navigation, click 'manage feeds'
-** Add the urls to any feeds to include
+  * Navigate to project, click 'blogroll' in main navigation, click 'manage feeds'
+  * Add the urls to any feeds to include
 
 = License
 
