@@ -20,7 +20,7 @@ class Blog < ActiveRecord::Base
    begin
      rss = SimpleRSS.parse open(url)
    # if we can't open it, just silently ignore it
-   rescue OpenURI::HTTPError => e
+   rescue OpenURI::HTTPError, SimpleRSSError => e
      return []
    end
 
