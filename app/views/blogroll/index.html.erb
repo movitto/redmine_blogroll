@@ -16,7 +16,7 @@
   <%= item.title %>
   </div>
   <div class="blogroll_item_link" >
-  <%= link_to "external link", item[:link] %>
+  <%= link_to item.blog.author, item[:link] %>
   </div>
   <div class="blogroll_item_content">
   <%= item.content %>

@@ -25,7 +25,7 @@ class Blog < ActiveRecord::Base
    end
 
    # return if feed not updated since we last checked 
-   last_modified = rss.channel.pubDate || rss.channel.lastBuildDate || rss.channel.modified || Time.now.gmtime
+   last_modified = rss.channel.pubDate || Time.now.gmtime
    return blog_entries if !last_updated.nil? && last_modified <= last_updated
 
    self.last_updated = Time.now
@@ -33,11 +33,12 @@ class Blog < ActiveRecord::Base
    self.blog_entries.clear
 
    rss.items.each { |item|
+     content = item.description || item.content
      self.blog_entries << 
       BlogEntry.new({ :title => item.title,
          :link => item.link,
-         :date => item.pubDate || item.lastBuildDate || item.modified || Time.now.gmtime,
-         :content => CGI.unescapeHTML(item.description)}) # NOTE unescaping html here, potentially dangerous!!!
+         :date => item.pubDate || item.lastBuildDate || item.modified || item.published || Time.now.gmtime,
+         :content => CGI.unescapeHTML(content)}) # NOTE unescaping html here, potentially dangerous!!!
    }
 
    save!
