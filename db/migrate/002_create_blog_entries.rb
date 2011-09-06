@@ -5,7 +5,7 @@ class CreateBlogEntries < ActiveRecord::Migration
       t.column :title, :string
       t.column :link, :string
       t.column :date, :datetime
-      t.column :content, :string
+      t.column :content, :text
     end
   end
 
