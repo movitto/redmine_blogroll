@@ -25,7 +25,12 @@ class Blog < ActiveRecord::Base
    end
 
    # return if feed not updated since we last checked 
-   last_modified = rss.channel.pubDate || Time.now.gmtime
+   last_modified = Time.now.gmtime
+   [:pubDate, :updated].each { |tag|
+      if rss.channel.respond_to?(:tag)
+          last_modified = rss.channel.send(:tag)
+      end
+   }
    return blog_entries if !last_updated.nil? && last_modified <= last_updated
 
    self.last_updated = Time.now
